@@ -1,0 +1,12 @@
+# Register this MCP server in a dsh profile. Run:
+#   .venv/bin/python dsh_plugin/install_to_dsh.py --profile desktop
+# or paste this entry into ~/.dsh/profiles/<profile>/cordis.patch.yml
+# and replace <REPO_DIR> with the absolute path to this repository.
+- id: dsh-audio-perception
+  name: "@deepseek-ai/dsh-mcp-client"
+  config:
+    serverName: audio
+    transport: stdio
+    command: <REPO_DIR>/.venv/bin/python
+    args: ["<REPO_DIR>/audio_mcp_server.py"]
+    cwd: <REPO_DIR>

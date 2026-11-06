@@ -1,0 +1,122 @@
+{
+  "split": {
+    "val_clips": 1473,
+    "test_clips": 766
+  },
+  "thresholds": {
+    "angry": 0.55,
+    "happy": 0.64,
+    "neutral": 0.5,
+    "sad": 0.64,
+    "surprise": 0.48,
+    "fear": 0.5,
+    "aroused": 0.39
+  },
+  "val_f1_at_tuned": {
+    "angry": 0.586,
+    "happy": 0.561,
+    "neutral": 0.676,
+    "sad": 0.513,
+    "surprise": 0.223,
+    "fear": 0,
+    "aroused": 0.718
+  },
+  "test_default_0.5": {
+    "macro_f1_excl_fear": 0.4941666666666667,
+    "per_label": {
+      "angry": {
+        "precision": 0.417,
+        "recall": 0.779,
+        "f1": 0.544,
+        "support": 136
+      },
+      "happy": {
+        "precision": 0.211,
+        "recall": 0.625,
+        "f1": 0.315,
+        "support": 56
+      },
+      "neutral": {
+        "precision": 0.635,
+        "recall": 0.803,
+        "f1": 0.709,
+        "support": 351
+      },
+      "sad": {
+        "precision": 0.473,
+        "recall": 0.683,
+        "f1": 0.559,
+        "support": 104
+      },
+      "surprise": {
+        "precision": 0.115,
+        "recall": 0.514,
+        "f1": 0.188,
+        "support": 35
+      },
+      "fear": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4
+      },
+      "aroused": {
+        "precision": 0.661,
+        "recall": 0.639,
+        "f1": 0.65,
+        "support": 338
+      }
+    },
+    "exact_match": 0.3394255874673629,
+    "hamming": 0.1989929130921298
+  },
+  "test_tuned": {
+    "macro_f1_excl_fear": 0.5368333333333334,
+    "per_label": {
+      "angry": {
+        "precision": 0.446,
+        "recall": 0.728,
+        "f1": 0.553,
+        "support": 136
+      },
+      "happy": {
+        "precision": 0.358,
+        "recall": 0.518,
+        "f1": 0.423,
+        "support": 56
+      },
+      "neutral": {
+        "precision": 0.635,
+        "recall": 0.803,
+        "f1": 0.709,
+        "support": 351
+      },
+      "sad": {
+        "precision": 0.747,
+        "recall": 0.596,
+        "f1": 0.663,
+        "support": 104
+      },
+      "surprise": {
+        "precision": 0.107,
+        "recall": 0.514,
+        "f1": 0.176,
+        "support": 35
+      },
+      "fear": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4
+      },
+      "aroused": {
+        "precision": 0.629,
+        "recall": 0.781,
+        "f1": 0.697,
+        "support": 338
+      }
+    },
+    "exact_match": 0.391644908616188,
+    "hamming": 0.17456173069750094
+  }
+}

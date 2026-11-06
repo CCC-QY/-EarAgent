@@ -1,0 +1,39 @@
+# virtualenv / caches
+.venv/
+__pycache__/
+*.py[cod]
+.hf_cache/
+.uv_cache/
+*.egg-info/
+
+# large model weights (download separately; see README)
+models/
+*.pt
+*.pth
+*.onnx
+*.bin
+*.safetensors
+# keep the small head checkpoints that are part of the repo:
+!checkpoints/e2vbase_head.pt
+!checkpoints/cnscd_multilabel_head.pt
+
+# data / media (never commit)
+data/
+Data/
+external-data/
+tmp_audio/
+real_eval/
+*.zip
+*.wav
+*.m4a
+*.mp3
+*.flac
+
+.DS_Store
+*.pkl
+*.jsonl
+
+# ignore local symlinks / links too
+.venv
+models
+tmp_audio
