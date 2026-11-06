@@ -31,7 +31,12 @@ LABELS7 = ["angry", "happy", "neutral", "sad", "surprise", "fear", "aroused"]
 AUDIO_EXTS = {".wav", ".flac", ".mp3", ".m4a", ".mp4", ".ogg", ".oga", ".opus", ".aac", ".aiff", ".aif"}
 EMOTION_TOKEN = re.compile(r"<\|(ANGRY|HAPPY|SAD|NEUTRAL|FEARFUL|DISGUSTED|SURPRISED|EMO_UNK)\|>")
 LANGUAGE_TOKEN = re.compile(r"<\|(zh|en|ja|ko|yue|nospeech|unk)\|>")
-FFMPEG = shutil.which("ffmpeg") or "/opt/homebrew/bin/ffmpeg"
+FFMPEG = shutil.which("ffmpeg")
+if not FFMPEG:
+    for _cand in (r"C:\ffmpeg\bin\ffmpeg.exe", r"C:\Program Files\ffmpeg\bin\ffmpeg.exe"):
+        if Path(_cand).exists():
+            FFMPEG = _cand
+            break
 
 _m = {"asr": None, "emo": None, "head5": None, "mu5": None, "sd5": None,
       "head7": None, "mu7": None, "sd7": None, "thr7": None, "loaded": False}
@@ -95,8 +100,8 @@ def _prepare_wav(path: Path) -> tuple[Path, Path | None]:
                 return path, None
         except Exception:
             pass
-    if not Path(FFMPEG).exists():
-        raise RuntimeError("ffmpeg not found; cannot transcode non-16k wav")
+    if not FFMPEG or not Path(FFMPEG).exists():
+        raise RuntimeError("ffmpeg not found; install it and add to PATH (Windows: winget install Gyan.FFmpeg)")
     tmpdir = Path(tempfile.mkdtemp(prefix="audio-mcp-"))
     tmp = tmpdir / "in16k.wav"
     subprocess.run([FFMPEG, "-y", "-loglevel", "error", "-i", str(path),

@@ -33,6 +33,20 @@ audio ──> SenseVoiceSmall ──> transcript / language
 - ~2–3 GB RAM at runtime (both backbones loaded)
 - The two backbone models (downloaded separately, see below)
 
+## Install on Windows (i7 / CPU)
+
+See [`docs/WINDOWS.md`](docs/WINDOWS.md). Quick version:
+
+```powershell
+winget install --id Gyan.FFmpeg -e
+git clone https://github.com/CCC-QY/-EarAgent.git
+Set-Location -Path '.\-EarAgent'
+python -m venv .venv; .\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python scripts\download_models.py
+python dsh_plugin\selftest.py C:\path\to\audio.wav
+```
+
 ## Install
 
 ```bash
